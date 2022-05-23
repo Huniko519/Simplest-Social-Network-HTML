@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <title>Simplest Social Network HTML Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Simplest is - Professional A unique and beautiful collection of UI elements">
+    <link rel="icon" href="assets/images/favicon.png">
+
+    <!-- CSS 
+    ================================================== -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/uikit.css">
+    <link rel="stylesheet" href="assets/css/uikit.css">
+
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="assets/css/icons.css">
+    <script src="https://kit.fontawesome.com/815e388c50.js" crossorigin="anonymous"></script>
+
+    <!-- Google font
+    ================================================== -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f8f9fa !important;
+            overflow-x: hidden;
+            font-size: 16px;
+            padding: 0 !important;
+        }
+
+        .icon-large {
+            font-size: 3.3rem !important;
+        }
+
+        .demo-card {
+            text-align: center;
+            color: #4a4a4a;
+            text-transform: capitalize;
+        }
+
+        .demo-card img {
+            border-radius: 8px;
+            box-shadow: 0px 2px 14px -3px #00000026;
+            margin-right: 1px;
+        }
+
+        .demo-card:hover.demo-card img,
+        .demo-card:hover span.new {
+            transition: 0.4s ease all;
+            transform: translateY(-10px);
+            box-shadow: rgba(34, 48, 102, 0.1) 0px 18px 27.2px -5px;
+        }
+
+        .demo-card span.new {
+            color: white;
+            background-color: red;
+            padding: 2px 9px;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            right: -12px;
+            top: -13px;
+            box-shadow: 2px 2px 3px 0px #cecece;
+        }
+
+        .demo-card p {
+            margin-top: 15px;
+        }
+
+        .my-list {
+            margin: 0;
+            padding: 0;
+        }
+
+        .my-list li {
+            list-style: none;
+            display: inline-block;
+            padding: 8px 23px;
+            background: #f4fff7f0;
+            margin-bottom: 8px;
+            margin-left: 5px;
+            border-radius: 100px;
+        }
+
+        .my-list li:hover {
+            background: #f4fff7;
+            transition: 0.4s ease all;
+            transform: translateY(-2px);
+        }
+
+        .my-list li a {
+            color: #7b7b7b;
+        }
+
+        .my-list li a:hover {
+            color: #132763;
+        }
+
+
+        .demo-header {
+            z-index: 1000 !important;
+            position: relative;
+            background: white;
+            box-shadow: 0 1px 10px rgba(151, 164, 175, 0.1);
+        }
+
+        .demo-header-transparent {
+            background: transparent !important;
+            box-shadow: none !important;
+            position: absolute;
+            width: 100%;
+        }
+
+        .demo-header #logo {
+            font-size: 21px;
+            font-weight: 600;
+        }
+
+        .demo-header #logo i {
+            font-size: 28px;
+        }
+
+        .uk-navbar-nav>li>a {
+            font-weight: 600;
+            font-size: 15.6px;
+            padding: 1.5rem 1.1rem;
+            text-transform: inherit;
+        }
+
+        .demo-nav>li>a:after {
+            background-color: #6e00ff;
+            border-radius: 4px;
+            content: "";
+            margin-top: 35px;
+            height: 5px;
+            position: absolute;
+            transform: scaleX(0);
+            transition: transform 0.25s;
+            width: 13px;
+        }
+
+        .uk-light .demo-nav>li>a:after {
+            background-color: rgb(255, 241, 227);
+
+        }
+
+        .demo-nav>.uk-active a:after {
+            transform: scaleX(1);
+        }
+
+        .uk-navbar-nav>li.uk-active>a {
+            color: #6e00ff;
+        }
+
+        .demo-hero {
+            border-radius: 0 0 50px 50px;
+            padding-bottom: 0px;
+            margin-bottom: 78px;
+        }
+
+        .demo-hero .uk-container {
+            padding: 100px 0;
+            margin-bottom: -65px;
+        }
+
+        .demo-hero .img-hero {
+            /* z-index: 19999; */
+            position: relative;
+        }
+
+        .demo-hero h1,
+        .demo-hero p {
+            color: white;
+        }
+
+        .demo-hero .curve {
+            width: 100%;
+        }
+
+
+
+        #logo {
+            position: absolute;
+            left: 65px;
+        }
+
+        #logo img {
+            width: 38px;
+        }
+
+        #logo .logo-inverse {
+            display: none;
+        }
+
+        .uk-light #logo img {
+            /* display: none; */
+        }
+
+        .uk-light #logo .logo-inverse {
+            display: inline;
+        }
+
+        .uk-light .button.primary {
+            background-color: white;
+            color: orange;
+            border-color: white;
+        }
+
+        .mobi-head {
+            display: none;
+            height: 54px;
+            padding: 10px;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1;
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 960px) {
+            .demo-hero {
+                border-radius: 0;
+                margin-bottom: 0;
+                margin-top: -50px;
+                padding-top: 42px;
+                text-align: center;
+            }
+
+            .mobi-head {
+                display: flex;
+            }
+
+            .demo-hero .uk-container {
+                padding: 50px 20px !important;
+            }
+
+            .demo-hero .img-hero,
+            .demo-hero .curve {
+                display: none;
+            }
+
+            .uk-container {
+                padding: 0 30px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="demo-header demo-header-transparent uk-light uk-visible@m" id="home"
+        uk-sticky="top: 100 ;animation: uk-animation-slide-top ;cls-inactive: demo-header-transparent uk-light">
+        <div class="uk-container pt-0">
+            <nav uk-navbar>
+                <div class="uk-navbar-left">
+
+                    <div id="logo" style="left: 0;">
+                        <a href="#"> <img src="assets/images/logo.svg" alt=""> Simplest </a> 
+                    </div>
+
+                </div>
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav demo-nav" uk-scrollspy-nav="closest: li; scroll: true">
+                        <li class="uk-active"><a href="#home">Home</a></li>
+                        <li> <a href="#demos">Demos</a> </li>
+                        <li><a href="#feature">Feature</a> </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary transition-3d-hover ml-3   btn-sm"> Buy now</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- model mobile menu -->
+
+    <div class=" mobi-head uk-light  uk-visible@m" uk-sticky="top: 10 ;animation: uk-animation-slide-top ; cls-active: bg-primary">
+        <div id="logo" style=" left: 30px; ">
+            <a href="#"> <img src="assets/images/logo-light.png" class="logo-inverse" alt=""></a>
+        </div>
+
+        <a href="#tm-mobile" style="margin-right: 30px;" uk-toggle>
+            <i class="uil-bars text-white icon-small"></i>
+        </a>
+    </div>
+
+
+
+    <!-- model mobile menu -->
+    <div id="tm-mobile" class="uk-modal-full uk-modal" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-text-center uk-flex" uk-height-viewport>
+            <button class="uk-modal-close-full uk-close uk-icon" type="button" uk-close></button>
+            <div class="uk-margin-auto-vertical uk-width-1-1">
+                <div class="uk-child-width-1-1" uk-grid>
+                    <div>
+                        <div class="uk-panel">
+                            <ul class="uk-nav uk-nav-primary uk-nav-center nav-white">
+                                <li class="uk-active  uk-modal-close"><a href="#home"
+                                        uk-toggle="target .tm-mobile">Home</a></li>
+                                <li> <a href="#demos" class=" uk-modal-close">Demos</a> </li>
+                                <li><a href="#feature" class=" uk-modal-close">Feature</a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-panel widget-text" id="widget-text-1">
+                            <a href="#" class="button primary transition-3d-hover ml-3 circle btn-sm"> Buy now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="demo-hero bg-gradient-primary uk-visible@m">
+
+        <div class="uk-container mt-sm-5 mb-md-0 my-md pb-0">
+
+            <div class="uk-width-2-3@m my-lg-5 text-center m-auto">
+
+                <br><br>
+                <h1 class="text-white">The Ultimate Social Network Template </h1>
+                <p>Simplest is developer-friendly, rich with features and highly customizable.  <br>
+                     We’ve followed the highest industry standards to bring   you the very best Social template  </p>
+            </div>
+
+            <div>
+                <img src="assets/images/demos/demo-feature-1.png" class="mt-3" alt="">
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="uk-section" id="demos">
+        <div class="uk-container">
+
+            <div class="uk-text-center mt-lg mb-7 my-sm-2">
+                <h2>Explore our demos </h2>
+                <hr class="uk-divider-small">
+                <p>Explore our landing page demos on different kind of topics. More <br> demos are coming soon. </p>
+            </div>
+
+            <div class="uk-child-width-1-3@m uk-child-width-1-2@s uk-flex-center"
+            uk-scrollspy="target: > div; cls: uk-animation-slide-bottom-small; delay: 100" uk-grid>
+            
+               <div>
+                    <a target="_blank" href="feeds.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos//feeds.png" alt="">
+                            <p> Feed </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="albums.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/albums.png" alt="">
+                            <p> albums </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="timeline.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/timeline.png" alt="">
+                            <p> timeline  </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="blog.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/blog.png" alt="">
+                            <p> blog </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="events.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/events.png" alt="">
+                            <p> events </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="explore.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/explore.png" alt="">
+                            <p> explore </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="games.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/games.png" alt="">
+                            <p> games </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="funding.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/funding.png" alt="">
+                            <p> funding </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="group.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/group.png" alt="">
+                            <p> group </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="group-feed.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/group-feed.png" alt="">
+                            <p> group-feed </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="jobs.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/jobs.png" alt="">
+                            <p> jobs </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="market.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/market.png" alt="">
+                            <p> market </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="offers.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/offers.png" alt="">
+                            <p> offers </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="pages.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/pages.png" alt="">
+                            <p> pages </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="pokes.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/pokes.png" alt="">
+                            <p> pokes </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="popular-post.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/popular-post.png" alt="">
+                            <p> popular-post  </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="form-login.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/form-login.png" alt="">
+                            <p> login  </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="form-singup.html">
+                        <div class="demo-card">
+                        <img src="assets/images/demos/form-singup.png" alt="">
+                            <p> register  </p>
+                        </div>
+                    </a>
+                </div>
+
+            
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="uk-section bg-white" id="feature">
+        <div class="uk-container">
+            <div class="uk-text-center">
+                <h2 class="mt-3">Our Awesome <strong>Features</strong></h2>
+                <p>A unique and beautiful collection of UI elements that are all flexible .</p>
+
+                <div class="uk-child-width-1-3@m uk-child-width-1-2@s uk-text-center uk-grid mt-lg-6" uk-grid="">
+                    <div class="uk-first-column">
+                        <div class="p-4">
+                            <div class="mt-lg-4 mb-3"> <i
+                                    class="icon-line-awesome-paint-brush uk-text-primary icon-large"></i> </div>
+                            <h5 class="uk-text-bold mt-2">Fast Performance</h5>
+                            <p>Optimized for a smaller build size, faster dev compilation and dozens of other
+                                improvements.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="p-4 uk-card-default rounded">
+                            <div class="mt-lg-4 mb-3"> <i
+                                    class="icon-line-awesome-mobile-phone uk-text-primary icon-large"></i> </div>
+                            <h5 class="uk-text-bold mt-2">Built in Components</h5>
+                            <p>We have provided a lot of useful build in components to make it easy for customers.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="p-4">
+                            <div class="mt-lg-4 mb-3"> <i
+                                    class="icon-line-awesome-credit-card uk-text-primary icon-large"></i> </div>
+                            <h5 class="uk-text-bold mt-2">Beautiful markup</h5>
+                            <p>We use the latest technologies and tools in order to create a better code </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="uk-section bg-white pb-3">
+        <div class="uk-container">
+            <!-- footer
+               ================================================== -->
+            <div class="footer">
+                <div class="uk-grid-collapse" uk-grid>
+                    <div class="uk-width-expand@s uk-first-column">
+                        <p>© 2020 <strong>Simplest</strong>. All Rights Reserved. </p>
+                    </div>
+                    <div class="uk-width-auto@s">
+                        <nav class="footer-nav-icon">
+                            <ul class="uk-tab">
+                                <li><a href="#"><i class="icon-brand-facebook"></i></a></li>
+                                <li><a href="#"><i class="icon-brand-dribbble"></i></a></li>
+                                <li><a href="#"><i class="icon-brand-youtube"></i></a></li>
+                                <li><a href="#"><i class="icon-brand-twitter"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- javaScripts
+    ================================================== -->
+    <script src="assets/js/uikit.js"></script>
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/simplebar.js"></script>
+    
+
+
+</body>
+
+</html>
